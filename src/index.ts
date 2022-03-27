@@ -8,7 +8,6 @@ export function babelCodegen() {
         if (path.node.kind === "const" || path.node.kind === "let") {
           path.node.kind = "var";
         }
-        // path.skip();
       },
       ArrowFunctionExpression(path: any) {
         path.replaceWith(
@@ -22,7 +21,6 @@ export function babelCodegen() {
             path.node.async
           )
         );
-        // path.skip();
       },
       TemplateLiteral(path: any) {
         const templateExpressions = [];
