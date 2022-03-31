@@ -14,7 +14,7 @@ test("default", () => {
     plugins: [babelCodegen],
   });
 
-  console.log(code);
+  console.log("\n\n\n", code);
 });
 
 test.run();
