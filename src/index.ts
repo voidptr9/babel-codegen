@@ -48,15 +48,13 @@ export function babelCodegen() {
           )
         );
       },
-      // NumericLiteral: {
-      //   exit(path: any) {
-      //     // console.log("yes");
-      //     if (path.node.extra) {
-      //       path.node.extra.raw = path.node.extra.rawValue;
-      //     }
-      //     path.skip();
-      //   },
-      // },
+      NumericLiteral(path: any) {
+        if (path.node.extra && path.node.extra.raw.includes("_")) {
+          path.node.extra.raw = path.node.extra.rawValue.toString();
+        }
+        
+        path.skip();
+      },
     },
   };
 }

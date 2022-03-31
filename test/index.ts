@@ -6,8 +6,7 @@ import { transformSync } from "@babel/core";
 
 const src = `const a = 5,
   b = 10_000,
-  c = () => a + b;
-let o = \`hey \${why} there\` + \`ok \${a || b} there\`;`;
+  c = () => a + b;`;
 
 test("default", () => {
   const { code } = transformSync(src, {
