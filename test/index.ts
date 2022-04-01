@@ -4,9 +4,13 @@ import { test } from "uvu";
 import { babelCodegen } from "../src/index.js";
 import { transformSync } from "@babel/core";
 
-const src = `const a = 5,
-  b = 10_000,
-  c = () => a + b;`;
+const src = `class App {
+  msg = "Hello, World!";
+  
+  greet() {
+    return this.msg;
+  }
+}`;
 
 test("default", () => {
   const { code } = transformSync(src, {
