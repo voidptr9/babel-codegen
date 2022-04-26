@@ -1,21 +1,16 @@
 {
-  "name": "tsdev",
+  "name": "babel-codegen",
   "version": "1.0.0",
-  "main": "./lib/index.js",
+  "main": "./src/index.js",
   "type": "module",
   "license": "MIT",
   "scripts": {
-    "build": "esbuild --bundle --outfile=./lib/index.js --format=esm ./src/index.ts",
-    "test": "node --stack-trace-limit=0 --no-warnings --loader ts-node/esm.mjs ./test/index.ts"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.15.5",
-    "@types/node": "^16.0.0",
-    "ts-node": "^10.0.0",
-    "typescript": "^4.3.5",
-    "uvu": "^0.5.1"
+    "test": "node ./test/index.js"
   },
   "dependencies": {
-    "@babel/types": "^7.15.6"
+    "@babel/types": "^7.17.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.9"
   }
 }
