@@ -1,8 +1,8 @@
-import * as t from "@babel/types";
 import VariableDeclaration from "./nodes/VariableDeclaration.js";
 import ArrowFunctionExpression from "./nodes/ArrowFunctionExpression.js";
 import TemplateLiteral from "./nodes/TemplateLiteral.js";
 import NumericLiteral from "./nodes/NumericLiteral.js";
+import AssignmentPattern from "./nodes/AssignmentPattern.js";
 import ClassDeclaration from "./nodes/ClassDeclaration.js";
 
 export function babelCodegen() {
@@ -10,10 +10,11 @@ export function babelCodegen() {
     name: "babel-plugin-codegen",
     visitor: {
       VariableDeclaration,
+      AssignmentPattern,
       ArrowFunctionExpression,
       TemplateLiteral,
       NumericLiteral,
-      ClassDeclaration,
+      ClassDeclaration: { exit: ClassDeclaration },
     },
   };
 }

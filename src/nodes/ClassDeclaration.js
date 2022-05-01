@@ -1,3 +1,5 @@
+import * as t from "@babel/types";
+
 export default function ClassDeclaration(path) {
   const { name } = path.node.id;
   const fields = [];
@@ -24,7 +26,7 @@ export default function ClassDeclaration(path) {
             t.memberExpression(t.identifier(name), t.identifier("prototype")),
             subnode.key
           ),
-          t.functionExpression(null, [], subnode.body, false, false)
+          t.functionExpression(null, subnode.params, subnode.body, false, false)
         )
       );
     }

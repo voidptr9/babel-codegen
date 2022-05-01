@@ -4,8 +4,8 @@ import { transformSync } from "@babel/core";
 const src = `class App {
   msg = "Hello, World!";
   
-  greet() {
-    return this.msg;
+  greet(msg = this.msg) {
+    return msg;
   }
 }`;
 
