@@ -1,3 +1,4 @@
+import VariableDeclarator from "./nodes/VariableDeclarator.js";
 import VariableDeclaration from "./nodes/VariableDeclaration.js";
 import ArrowFunctionExpression from "./nodes/ArrowFunctionExpression.js";
 import TemplateLiteral from "./nodes/TemplateLiteral.js";
@@ -9,6 +10,7 @@ export function babelCodegen() {
   return {
     name: "babel-plugin-codegen",
     visitor: {
+      VariableDeclarator,
       VariableDeclaration,
       AssignmentPattern,
       ArrowFunctionExpression,

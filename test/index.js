@@ -1,20 +1,10 @@
 import { babelCodegen } from "../src/index.js";
 import { transformSync } from "@babel/core";
 
-const src = `class App {
-  msg = "Hello, World!";
-
-  nested = () => () => () => globalThis;
-  
-  greet(msg = this.msg) {
-    return msg;
-  }
-}
-
-const { self = true } = window;
-let a, b;
-[a=5, b=7] = [1];
-[x=10, y=20, z=30] = [1];`;
+const src = `const { self } = window;
+const x = { a: 1, b: 2 };
+const { a, b } = x;
+const [ k, v ] = x;`;
 
 const { code } = transformSync(src, {
   plugins: [babelCodegen],
