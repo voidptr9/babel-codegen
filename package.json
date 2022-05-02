@@ -11,6 +11,8 @@
     "@babel/types": "^7.17.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.17.9"
+    "@babel/core": "^7.17.9",
+    "cli-highlight": "^2.1.11",
+    "cli-table": "^0.3.11"
   }
 }
