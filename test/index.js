@@ -11,7 +11,10 @@ const src = `class App {
   }
 }
 
-const { self = true } = window;`;
+const { self = true } = window;
+let a, b;
+[a=5, b=7] = [1];
+[x=10, y=20, z=30] = [1];`;
 
 const { code } = transformSync(src, {
   plugins: [babelCodegen],

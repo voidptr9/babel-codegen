@@ -9,7 +9,7 @@ export default function AssignmentPattern(path) {
   // Keep the identifier intact.
   path.replaceWith(left);
 
-  // Handle destructured assignments in variable declarations.
+  // Handle destructured object assignments in variable declarations.
   if (path.parent.type === "ObjectProperty") {
     // The tracker ensures we hit a declaration since:
     //    VariableDeclaration ->
@@ -21,6 +21,20 @@ export default function AssignmentPattern(path) {
     path.findParent(p => {
       if (varIndexTracker == 4) return;
       if (p.node.type == "VariableDeclaration") {
+        p.insertAfter(expr);
+      }
+      varIndexTracker++;
+    });
+  }
+
+  // Handle destructed array assignments in both variable declarations and expressions.
+  if (path.parent.type === "ArrayPattern") {
+    let varIndexTracker = 0;
+    path.findParent(p => {
+      if (varIndexTracker >= 3) return;
+      if (varIndexTracker == 2 && p.node.type == "VariableDeclaration") {
+        p.insertAfter(expr);
+      } else if (varIndexTracker == 2 && p.node.type != "VariableDeclaration") {
         p.insertAfter(expr);
       }
       varIndexTracker++;
