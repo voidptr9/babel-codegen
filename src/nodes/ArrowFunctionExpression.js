@@ -1,3 +1,5 @@
+import * as t from "@babel/types";
+
 export default function ArrowFunctionExpression(path) {
   path.replaceWith(
     t.functionExpression(

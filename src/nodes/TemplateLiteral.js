@@ -1,3 +1,5 @@
+import * as t from "@babel/types";
+
 export default function TemplateLiteral(path) {
   const templateExpressions = [];
   const { quasis, expressions } = path.node;
